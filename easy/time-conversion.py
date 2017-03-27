@@ -1,11 +1,15 @@
-time = '12:45:54PM'
+time = '04:45:54PM'
+
 
 def time_conversion(time):
-	time = time.split(':')
-	time[0] = (str(int(time[0]) + 12), time[0])[time[-1][-2:] == 'AM']
-	print(time)
-	time[0] = (time[0], '00')[time[0] == '24' or (time[0] == '12' and time[-1][-2:] == 'AM')]
-	print ':'.join(time)[:-2]
+    time = time.split(':')
+
+    if time[-1][-2:] == 'AM' and time[0] == '12':
+    	time[0] = '00'
+    if time[-1][-2:] == 'PM' and time[0] != '12':
+    	time[0] = str(int(time[0]) + 12)
+
+    return ':'.join(time)[:-2]
 
 
-time_conversion(time)
+print(time_conversion(time))
