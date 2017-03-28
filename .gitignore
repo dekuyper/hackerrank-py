@@ -140,3 +140,5 @@ ENV/
 .ropeproject
 
 .idea/*
+.sublime/*
+*.sublime-workspace
